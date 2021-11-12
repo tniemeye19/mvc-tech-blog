@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Router } = require('express');
 const { User, Post } = require('../../models');
+const withAuth = require('../../utils/auth');
 
+// Get all users
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] }
@@ -13,6 +14,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// get a single user
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
@@ -47,6 +49,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// create a new user
 router.post('/', withAuth, (req, res) => {
     User.create({
         username: req.body.username,
@@ -68,6 +71,7 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
+// login route
 router.post('/login', withAuth, (req, res) => {
     User.findOne({
         where: {
@@ -96,7 +100,8 @@ router.post('/login', withAuth, (req, res) => {
     });
 });
 
-router.post('/logout', (req, res) => {
+// logout route
+router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
@@ -106,7 +111,8 @@ router.post('/logout', (req, res) => {
     }
 });
 
-router.put('/:id', (req, res) => {
+// update info of current user
+router.put('/:id', withAuth, (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -126,7 +132,8 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+// delete a user
+router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id
