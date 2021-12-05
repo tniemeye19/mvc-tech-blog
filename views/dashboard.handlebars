@@ -10,7 +10,7 @@
             <label for="post-content">Content</label>
             <input id="post-content" name="post-content" />
         </div>
-        <button type="submit">Create</button>
+        <button class="cpb" type="submit">Create</button>
     </form>
 </section>
 
@@ -21,7 +21,9 @@
         {{#each posts as |post|}}
         <div class="post">
             {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+            <div class="edit-btn-div">
+                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+            </div>
         </div>
         {{/each}}
     </div>
