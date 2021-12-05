@@ -103,6 +103,7 @@ main {
 .login-form div button,
 .signup-form div button {
 
+    background-color: rgb(46, 46, 46);
     color:rgb(88, 202, 65);
     text-shadow: 1px 1px rgb(243, 243, 243, 0.5);
     border: 2px solid rgb(88, 202, 65);
@@ -112,7 +113,7 @@ main {
 }
 
 .login-form div button:hover,
-.signup-form div button:hover  {
+.signup-form div button:hover {
     color:rgb(243, 243, 243);
     text-shadow: 1px 1px rgb(88, 202, 65, 0.5);
     border: 2px solid rgb(243, 243, 243);
@@ -153,7 +154,11 @@ main {
     margin-left: 55px;
 }
 
-.edit-link {
+.edit-link,
+.btd, 
+.spb,
+.dpb,
+.acb {
     text-decoration: none;
     margin: auto;
     background-color: rgb(46, 46, 46);
@@ -165,7 +170,11 @@ main {
     padding: 5px;
 }
 
-.edit-link:hover {
+.edit-link:hover,
+.btd:hover,
+.spb:hover,
+.dpb:hover,
+.acb:hover {
     color:rgb(243, 243, 243);
     text-shadow: 1px 1px rgb(88, 202, 65, 0.5);
     border: 2px solid rgb(243, 243, 243);
