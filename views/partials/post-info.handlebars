@@ -1,12 +1,12 @@
 <article>
-    <div>
+    <div class="post-title">
         {{title}}
     </div>
-    <div>
+    <div class="post-content">
         {{post_content}}
     </div>
-    <div>
-        Created by {{user.username}} on {{format_date created_at}}
+    <div class="post-content">
+        Created by {{user.username}} on {{format_date createdAt}}
         |
         <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
     </div>
